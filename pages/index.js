@@ -10,6 +10,12 @@ import {
   Hidden
 } from 'reakit';
 
+const HomeWrap = styled.div`
+  color: #666;
+  width: 1000px;
+  margin: 100px auto;
+  line-height: 2;
+`;
 const StyledMenuItem = styled(MenuItem)`
   display: block;
   padding: 4px 6px;
@@ -23,21 +29,21 @@ const StyledMenu = styled(Menu)`
   color: #00c;
 `;
 
-const Home = ({ t }) => {
+const Home = () => {
   const menu = useMenuState();
 
   return (
-    <div>
-      <p>Welcome</p>
+    <HomeWrap>
+      <p>Next with Reakit</p>
       <MenuDisclosure {...menu}>Preferences</MenuDisclosure>
       <StyledMenu {...menu} aria-label="Preferences">
         <StyledMenuItem {...menu} disabled>
           Extensions
         </StyledMenuItem>
         <MenuSeparator {...menu} />
-        <MenuItem {...menu}>Keyboard shortcuts</MenuItem>
+        <StyledMenuItem {...menu}>Keyboard shortcuts</StyledMenuItem>
       </StyledMenu>
-    </div>
+    </HomeWrap>
   );
 };
 
