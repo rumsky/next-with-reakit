@@ -89,7 +89,6 @@ const Home = () => {
         <StyledMenu
           {...menu}
           aria-label="Preferences"
-          as={animated.div}
           style={{
             opacity,
             display,
@@ -99,11 +98,15 @@ const Home = () => {
             )
           }}
         >
-          <StyledMenuItem {...menu} disabled>
-            Extensions
-          </StyledMenuItem>
-          <MenuSeparator {...menu} />
-          <StyledMenuItem {...menu}>Keyboard shortcuts</StyledMenuItem>
+          {props => (
+            <animated.div {...props}>
+              <StyledMenuItem {...menu} disabled>
+                Extensions
+              </StyledMenuItem>
+              <MenuSeparator {...menu} />
+              <StyledMenuItem {...menu}>Keyboard shortcuts</StyledMenuItem>
+            </animated.div>
+          )}
         </StyledMenu>
       </MenuContainer>
     </HomeWrap>
